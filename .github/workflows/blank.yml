@@ -21,11 +21,11 @@ jobs:
       - name: Swagger UI Action
         uses: Legion2/swagger-ui-action@v1.1.3
         with:
-          output: output/
+          output: docs/output/
           version: ^3.0.0
-          spec-file: api.yaml
+          spec-file: docs/api.yaml
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: output
+          publish_dir: docs/output
