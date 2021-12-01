@@ -1,6 +1,6 @@
 swagger: "2.0"
 info:
-  description: "This is a simple APIII for controlling RGB LEDs."
+  description: "This is a simple APII for controlling RGB LEDs."
   version: "1.0.0"
   title: "LED Control API"
 tags:
