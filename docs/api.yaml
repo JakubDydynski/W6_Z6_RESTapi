@@ -1,6 +1,6 @@
 swagger: "2.0"
 info:
-  description: "This is a simple APII for controlling RGB LEDs."
+  description: "This is API for controlling RGB LEDs."
   version: "1.0.0"
   title: "LED Control API"
 tags:
@@ -12,7 +12,7 @@ paths:
       tags:
       - "led"
       summary: "Updates LED status"
-      description: "Updates RGB values that define LEDs color. After update it returns the new LED color."
+      description: "Updates RGB led level values that define color. After update it returns posted led color levels."
       operationId: "changeColor"
       consumes:
       - "application/json"
@@ -26,18 +26,18 @@ paths:
           $ref: "#/definitions/Color"
       responses:
         "200":
-          description: "Operation Successfull. New color returned."
+          description: "Operation Successfull. Color levels changed returned."
           schema:
             $ref: "#/definitions/Color"
         "400":
-          description: "Invalid data. Can occur if one of the rgb values is not an integer in range 0-255"
+          description: "Invalid data. Levels of the rgb values are not an integer in range 0-100"
         "500":
-          description: "Unexpected error. Please contact the administrator."
+          description: "Unexpected error."
     get:
       tags:
       - "led"
-      summary: "Return current LED status"
-      description: "Returns current RGB values that define LEDs color."
+      summary: "Return current rgb led levels"
+      description: "Returns current rgb led levels that define LEDs color."
       operationId: "getColor"
       responses:
         "200":
@@ -45,7 +45,7 @@ paths:
           schema:
             $ref: "#/definitions/Color"
         "500":
-          description: "Unexpected error. Please contact the administrator."
+          description: "Unexpected error."
 
 definitions:
   Color:
@@ -53,10 +53,10 @@ definitions:
     properties:
       r:
         type: "integer"
-        description: "Red component of the color (0-255)"
+        description: "Red level 0-100"
       g:
         type: "integer"
-        description: "Green component of the color (0-255)"
+        description: "Green level 0-100"
       b:
         type: "integer"
-        description: "Blue component of the color (0-255)"
+        description: "Blue level 0-100"
